@@ -13,7 +13,6 @@ pipeline {
     dockerImage = ""
     registryCredential = 'repo_login'
     repo = 'yxos'
-    WORKER_IP = '192.168.30.23'
     build_arg="--build-arg HIS_IP='192.168.37.23' ."
   }
 
