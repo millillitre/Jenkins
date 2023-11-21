@@ -12,8 +12,9 @@ pipeline {
     calculator_link = 'https://github.com/ced-yxos/Calculator_service.git'
     dockerImage = ""
     registryCredential = 'repo_login'
-    repo = 'yxos'
-    build_arg="--build-arg HIS_IP='192.168.37.23' ."
+  
+    //provide this line with one of your worker floating IP
+    build_arg="--build-arg HIS_IP='<worker_floating_ip>' ."
   }
 
   agent any
