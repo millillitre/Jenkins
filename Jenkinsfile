@@ -1,20 +1,20 @@
 pipeline {
   environment {
-    calculator_image = 'yxos/calculator'
-    sum_image = 'yxos/sum'
-    sub_image = 'yxos/sub'
-    mul_image = 'yxos/mul'
-    div_image = 'yxos/div'
+    calculator_image = 'millillitre/calculator'
+    sum_image = 'millillitre/sum'
+    sub_image = 'millillitre/sub'
+    mul_image = 'millillitre/mul'
+    div_image = 'millillitre/div'
     sum_link = 'https://github.com/ced-yxos/Sum_service.git'
     sub_link = 'https://github.com/ced-yxos/Sub_service.git'
     mul_link = 'https://github.com/ced-yxos/Mul_service.git'
     div_link = 'https://github.com/ced-yxos/Div_service.git'
-    calculator_link = 'https://github.com/ced-yxos/Calculator_service.git'
+    calculator_link = 'https://github.com/millillitre/Calculator_service.git'
     dockerImage = ""
-    registryCredential = 'repo_login'
+    registryCredential = 'repo_jenkins'
   
     //provide this line with one of your worker floating IP
-    build_arg="--build-arg HIS_IP='<worker_floating_ip>' ."
+    build_arg="--build-arg HIS_IP='192.168.37.151' ."
   }
 
   agent any
@@ -142,7 +142,7 @@ pipeline {
     stage('Deploying App to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "services_deployment.yml", kubeconfigId: "kubernetes")
+          kubernetesDeploy(configs: "services_deployment.yml", kubeconfigId: "Kubernetes")
         }
       }
     }
